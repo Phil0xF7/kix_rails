@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  type_task: MyString
+  text: MyText
+  completed: 2013-03-18 14:54:50
+
+two:
+  user_id: 1
+  type_task: MyString
+  text: MyText
+  completed: 2013-03-18 14:54:50
