@@ -1,7 +1,10 @@
 KixRails::Application.routes.draw do
   devise_for :users
 
+  match 'tasks/admin' => 'tasks#admin', :via => :get
+
   resources :tasks
+
 
 
   # The priority is based upon order of creation:
@@ -53,7 +56,7 @@ KixRails::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'tasks#admin'
 
   # See how all your routes lay out with "rake routes"
 
