@@ -21,7 +21,7 @@
                 <button id="btn-delete">Delete</button>
             </form>
             <h1>Sign Up Test</h1>
-                <form name="input" action=" /users/sign_up" method="GET">
+                <form name="input" action="/users/sign_up" method="GET">
                     <label for="email">user email</label>
                         <input type="textfield" name="user[email]" value="email"><br>
                     <label for="password">password</label>
@@ -32,7 +32,7 @@
                 </form>
             <br><br>
             <%= button_to 'Sign In', new_user_session_path %>
-            <%= button_to 'Sign Out', destroy_user_session_path, :method => 'delete', :confirm => 'Are you sure?' %>
+            <%= button_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
             <hr>
             <div id="content"></div>
         </div>
