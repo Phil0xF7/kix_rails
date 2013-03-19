@@ -3,3 +3,7 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', tasks_path %>
+<h3>logged in as: <%= current_user.email %></h3>
+<%= button_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
+
+
