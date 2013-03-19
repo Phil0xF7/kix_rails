@@ -3,6 +3,9 @@ class Task < ActiveRecord::Base
   # associations
   belongs_to :user
 
+  validates_presence_of :type_task, :user_id
+  validates_numericality_of :type_task, :user_id
+
   # These values can be accessed throughout the
   # rails app by using Task::TYPES[:story_main]
   TYPES = {
