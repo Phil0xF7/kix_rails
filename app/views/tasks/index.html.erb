@@ -9,11 +9,10 @@
     <th></th>
     <th></th>
   </tr>
-
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.user_id %></td>
-    <td><%= task.type_task %></td>
+    <td><%= Task::TYPES.invert[task.type_task.to_i] %></td>
     <td><%= task.text %></td>
     <td><%= task.completed %></td>
     <td><%= link_to 'Show', task %></td>
