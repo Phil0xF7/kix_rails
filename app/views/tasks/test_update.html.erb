@@ -1,5 +1,8 @@
-<h1>Listing Kix tasks for success!</h1>
-<table>
+<h1>Testing form ouput for user</h1>
+
+
+
+ <table>
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.user_id %></td>
@@ -12,10 +15,4 @@
   </tr>
 <% end %>
 </table>
-<br />
-
-<h3>logged in as: <%= current_user.email %></h3>
-<%= button_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
-
-
-
+<%= link_to 'New Task', new_task_path %>

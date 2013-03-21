@@ -2,6 +2,7 @@ KixRails::Application.routes.draw do
   devise_for :users
 
   match 'tasks/admin' => 'tasks#admin', :via => :get
+  match 'tasks/test' => 'tasks#test_update' , :via => :get
 
   resources :tasks
 
