@@ -1,81 +1,127 @@
 <!DOCTYPE html>
 
 <html>
-
     <head>
         <title>Prekix | Get ready for Kickstarter success!</title>
         <link href="css/kix-styles.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/app.js"></script>
     </head>
-    
+
     <body id="tasks-home">
-    
+
         <div id="container-top">
             <h1 class="orange">preKix</h1>
             <div id="flag">45 days left</div>
         </div><!-- end container-top -->
 
         <div id="container">
-            
+
             <div id="sidenav">
             	<ul>
-                    <li class="cats">Story
-                        <img src="images/badge-off.png" id="badge">
-                        <ul class="dotted">
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
+                    <li class="cats">
+                        <div class="cat-button">Story
+                            <img src="images/badge-off.png" class="badge-incomplete">
+                            <ul class="dotted">
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                            </ul>
+                        </div>
+                        <ul class="sub-tasks">
+                            <li class="sub-task"><strong>1</strong><span>Your Story</span></li>
+                            <li class="sub-task"><strong>2</strong><span>Long Description</span></li>
+                            <li class="sub-task"><strong>3</strong><span>Email pitch</span></li>
+                            <li class="sub-task"><strong>4</strong><span>Edit Content</span></li>
+                            <li class="sub-task"><strong>5</strong><span>Outside Perspective</span></li>
                         </ul>
                     </li>
-                    <li class="cats">Financial
-                        <img src="images/badge-off.png" id="badge">
-                        <ul class="dotted">
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
+                    <li class="cats">
+                        <div class="cat-button">Financial
+                            <img src="images/badge-off.png" class="badge-incomplete">
+                            <ul class="dotted">
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                            </ul>
+                        </div>
+                        <ul class="sub-tasks">
+                            <li class="sub-task"><strong>1</strong><span>Your Story</span></li>
+                            <li class="sub-task"><strong>2</strong><span>Long Description</span></li>
+                            <li class="sub-task"><strong>3</strong><span>Email pitch</span></li>
+                            <li class="sub-task"><strong>4</strong><span>Edit Content</span></li>
+                            <li class="sub-task"><strong>5</strong><span>Outside Perspective</span></li>
                         </ul>
                     </li>
-                    <li class="cats">Networking
-                        <img src="images/badge-off.png" id="badge">
-                        <ul class="dotted">
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
+                    <li class="cats">
+                        <div class="cat-button">Networking
+                            <img src="images/badge-off.png" class="badge-incomplete">
+                            <ul class="dotted">
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                            </ul>
+                        </div>
+                        <ul class="sub-tasks">
+                            <li class="sub-task"><strong>1</strong><span>Your Story</span></li>
+                            <li class="sub-task"><strong>2</strong><span>Long Description</span></li>
+                            <li class="sub-task"><strong>3</strong><span>Email pitch</span></li>
+                            <li class="sub-task"><strong>4</strong><span>Edit Content</span></li>
+                            <li class="sub-task"><strong>5</strong><span>Outside Perspective</span></li>
                         </ul>
                     </li>
-                    <li class="cats">Video
-                        <img src="images/badge-off.png" id="badge">
-                        <ul class="dotted">
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
+                    <li class="cats">
+                        <div class="cat-button">Video
+                            <img src="images/badge-off.png" class="badge-incomplete">
+                            <ul class="dotted">
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                            </ul>
+                        </div>
+                        <ul class="sub-tasks">
+                            <li class="sub-task"><strong>1</strong><span>Your Story</span></li>
+                            <li class="sub-task"><strong>2</strong><span>Long Description</span></li>
+                            <li class="sub-task"><strong>3</strong><span>Email pitch</span></li>
+                            <li class="sub-task"><strong>4</strong><span>Edit Content</span></li>
+                            <li class="sub-task"><strong>5</strong><span>Outside Perspective</span></li>
                         </ul>
                     </li>
-                    <li class="cats">Marketing
-                        <img src="images/badge-off.png" id="badge">
-                        <ul class="dotted">
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
-                            <li>&#149;</li>
+                    <li class="cats">
+                        <div class="cat-button">Marketing
+                            <img src="images/badge-off.png" class="badge-incomplete">
+                            <ul class="dotted">
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                                <li>&#149;</li>
+                            </ul>
+                        </div>
+                        <ul class="sub-tasks">
+                            <li class="sub-task"><strong>1</strong><span>Your Story</span></li>
+                            <li class="sub-task"><strong>2</strong><span>Long Description</span></li>
+                            <li class="sub-task"><strong>3</strong><span>Email pitch</span></li>
+                            <li class="sub-task"><strong>4</strong><span>Edit Content</span></li>
+                            <li class="sub-task"><strong>5</strong><span>Outside Perspective</span></li>
                         </ul>
                     </li>
             	</ul>
             </div>
-            
+
             <div id="main-content">
             	<p class="quote">Twenty years from now, you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails.<br />Explore. Dream. Discover.</p>
                 <p class="quote-attribute">- Mark Twain</p>
             </div>
-        
+
         </div><!-- end container -->
 
 
@@ -86,7 +132,7 @@
             <div id="copyright">2013 preKix, Inc. All Rights Reserved.</div>
 
         </div><!-- end footer -->
-    
+
     </body>
-    
+
 </html>
