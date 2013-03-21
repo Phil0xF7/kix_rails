@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :completed %>
-    <%= f.check_box :completed %>
+    <%= f.check_box :completed, {}, Time.now %>
   </div>
   <div class="actions">
     <%= f.submit %>
