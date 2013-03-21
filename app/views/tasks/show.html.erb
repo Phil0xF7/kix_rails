@@ -7,7 +7,7 @@
  -->
 <p>
   <b>Type task:</b>
-  <%= @task.type_task %>
+  <%= Task::TYPES.invert[@task.type_task.to_i] %>
 </p>
 
 <p>
