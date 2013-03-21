@@ -84,4 +84,34 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #GET /tasks/test
+  def test_update
+    @tasks = Task.where(:user_id => current_user)
+
+
+
+    respond_to do |format|
+      format.html #test_update.html.erb
+      format.json {render json: @allTasks}
+    end
+  end
+
+  # try making method that creates task upon sign up
+
+
 end
+
+#  DEVISE CONTROLLER
+
+class Make_24tasks < Devise::RegistrationsController
+
+  @_24task = Task.create
+
+end
+
+
+
+
+
+
