@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
-
-  </div>
   <div class="field">
     <%= f.label :type_task %><br />
-    <%= f.text_field :type_task %>
+    <%= f.select :type_task, Task::TYPES.collect {|k, v| [k.to_s, v]} %>
   </div>
   <div class="field">
     <%= f.label :text %><br />
     <%= f.text_area :text %>
   </div>
   <div class="field">
-    <%= f.label :completed %><br />
-    <%= f.datetime_select :completed %>
+    <%= f.label :completed %>
+    <%= f.check_box :completed, {}, Time.now %>
   </div>
   <div class="actions">
     <%= f.submit %>

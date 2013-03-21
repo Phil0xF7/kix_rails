@@ -3,6 +3,16 @@ class Task < ActiveRecord::Base
   # associations
   belongs_to :user
 
+  @type_num_start = 0
+  @type_num_end = 24
+
+  validates_presence_of :type_task, :user_id
+  validates_numericality_of :user_id, :only_integer => true
+  validates_numericality_of :type_task,
+                            :only_integer => true,
+                            :greater_than_or_equal_to => @type_num_start,
+                            :less_than_or_equal_to => @type_num_end
+
   # These values can be accessed throughout the
   # rails app by using Task::TYPES[:story_main]
   TYPES = {
