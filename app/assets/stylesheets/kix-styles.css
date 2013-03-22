@@ -2,13 +2,13 @@
 
 /* Import Bootstrap and Flat UI Stylesheets */
 
-@import url("bootstrap.css");
-@import url("flat-ui.css");
+/*@import url("bootstrap.css");
+@import url("flat-ui.css");*/
 
 
 /* Kix Styling */
 
-body { background-color: #1abc9c; }
+.green { background-color: #1abc9c; }
 
 .center { text-align: center; }
 
