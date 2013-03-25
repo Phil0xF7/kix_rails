@@ -1,17 +1,54 @@
-<h2>Sign in</h2>
+<div id="loginpg">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div id="loginpg">
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	<div id="container">
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+		<div id="container-top">
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+		    <%= image_tag "illustrations/clipboard.png", :style => "width: 100px; height: 100px;", :class => "big-illustration-pusher", :id => "clipboard" %>
+		    <h1><span class="orange">PreKix</span> Welcome</h1>
 
-<%= render "devise/shared/links" %>
+		</div><!-- end container-top -->
+
+		<div id="container-bot">
+		    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+		        	  <%= f.label :email %>
+
+		        	  <%= f.email_field :email, :autofocus => true, :class => "span3" %>
+
+		        	  <%= f.label :password %>
+
+		        	  <%= f.password_field :password, :class => "span3" %>
+
+		        	  <% if devise_mapping.rememberable? -%>
+		        	    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+		        	  <% end -%>
+
+		        	  <%= f.submit "Sign in", :class => "btn btn-large btn-block" %>
+
+		        	<% end %>
+		    <p class="center"><%= render "devise/shared/links" %></p>
+		</div><!-- end container-bot -->
+
+	</div><!-- end container -->
+
+</div>
+
+
+
+
+
+
+<!-- 
+
+<div id="container-bot">
+    <form>
+        <input type="text" value="Your Email" placeholder="Your Email" class="span3" />
+        <input type="text" value="Password" placeholder="Password" class="span3" />
+        <input type="text" value="Confirm" placeholder="Confirm" class="span3" />
+        <input type="submit" class="btn btn-large btn-block" value="Sign Me Up!">
+    </form>
+    <p class="center">Already have an account? <a href="login.html">Log in.</a></p>
+</div> -->
