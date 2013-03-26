@@ -13,6 +13,11 @@ class Task < ActiveRecord::Base
                             :greater_than_or_equal_to => @type_num_start,
                             :less_than_or_equal_to => @type_num_end
 
+  # Returns a count of all non-completed fields for the current user
+  def self.total_completed(cur_user_id)
+    where("user_id = ? AND completed IS NOT NULL", cur_user_id).count
+  end
+
   # These values can be accessed throughout the
   # rails app by using Task::TYPES[:story_main]
   TYPES = {
