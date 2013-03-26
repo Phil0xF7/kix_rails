@@ -133,7 +133,6 @@ class TasksController < ApplicationController
     end
   end
 
-
   # GET /tasks
   # GET /tasks.json
   def index
