@@ -132,10 +132,6 @@ class TasksController < ApplicationController
       @makeNewTask24.save
     end
   end
-<<<<<<< HEAD
-=======
-
->>>>>>> a68a94bd19528f150a761afe6de2d81832b9e9d6
 
   # GET /tasks
   # GET /tasks.json
