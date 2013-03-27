@@ -1,6 +1,6 @@
 KixRails::Application.routes.draw do
   devise_for :users
-
+  match 'tasks/app' => 'tasks#app', :via => :get
   match 'tasks/admin' => 'tasks#admin', :via => :get
 
   resources :tasks
