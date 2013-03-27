@@ -132,7 +132,7 @@ $ ()->
     setMainProgressBar(total_tasks_complete)
 
   init = ->
-    # $('.sub-tasks').hide();
+    $('.sub-tasks').hide();
     # setMainProgressBar(6);
     # setSubProgressBar('story', 3);
     # setSubProgressBar('video', 2);
