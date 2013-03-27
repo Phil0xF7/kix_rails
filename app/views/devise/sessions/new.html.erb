@@ -1,13 +1,12 @@
 <div id="loginpg">
 
-<div id="loginpg">
-
 	<div id="container">
 
-		<div id="container-top">
+		<div id="container-top" class="cf">
 
 		    <%= image_tag "illustrations/clipboard.png", :style => "width: 100px; height: 100px;", :class => "big-illustration-pusher", :id => "clipboard" %>
 		    <h1><span class="orange">PreKix</span> Welcome</h1>
+		    <!-- <div style="clear: both"></div> -->
 
 		</div><!-- end container-top -->
 
@@ -23,7 +22,7 @@
 		        	  <%= f.password_field :password, :class => "span3" %>
 
 		        	  <% if devise_mapping.rememberable? -%>
-		        	    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+		        	    <%= f.check_box :remember_me %><%= f.label :remember_me %>
 		        	  <% end -%>
 
 		        	  <%= f.submit "Sign in", :class => "btn btn-large btn-block" %>
@@ -35,20 +34,3 @@
 	</div><!-- end container -->
 
 </div>
-
-
-
-
-
-
-<!-- 
-
-<div id="container-bot">
-    <form>
-        <input type="text" value="Your Email" placeholder="Your Email" class="span3" />
-        <input type="text" value="Password" placeholder="Password" class="span3" />
-        <input type="text" value="Confirm" placeholder="Confirm" class="span3" />
-        <input type="submit" class="btn btn-large btn-block" value="Sign Me Up!">
-    </form>
-    <p class="center">Already have an account? <a href="login.html">Log in.</a></p>
-</div> -->

@@ -1,18 +1,32 @@
-<h2>Sign up</h2>
+<div id="loginpg">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+	<div id="container">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		<div id="container-top" class="cf">
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+		    <%= image_tag "illustrations/clipboard.png", :style => "width: 100px; height: 100px;", :class => "big-illustration-pusher", :id => "clipboard" %>
+		    <h1>Start an Account</h1>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+		</div><!-- end container-top -->
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+		<div id="container-bot">
+		    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		      <%= devise_error_messages! %>
 
-<%= render "devise/shared/links" %>
+		      <div><%= f.label :email %>
+		      <%= f.email_field :email, :autofocus => true,  :class => "span3" %></div>
+
+		      <div><%= f.label :password %>
+		      <%= f.password_field :password,  :class => "span3" %></div>
+
+		      <div><%= f.label :password_confirmation %>
+		      <%= f.password_field :password_confirmation, :class => "span3" %></div>
+
+		      <div><%= f.submit "Sign up", :class => "btn btn-large btn-block" %></div>
+		    <% end %>
+		    <p class="center"><%= render "devise/shared/links" %></p>
+		</div><!-- end container-bot -->
+
+	</div><!-- end container -->
+
+</div>
