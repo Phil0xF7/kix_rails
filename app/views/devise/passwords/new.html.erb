@@ -1,12 +1,26 @@
-<h2>Forgot your password?</h2>
+<div id="loginpg">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+	<div id="container">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		<div id="container-top" class="cf">
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+		    <h2>Forgot your password?</h2>
 
-<%= render "devise/shared/links" %>
+		</div><!-- end container-top -->
+
+		<div id="container-bot">
+		    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+		      <%= devise_error_messages! %>
+
+		      <div><%= f.label :email %>
+		      <%= f.email_field :email, :autofocus => true,  :class => "span3" %></div>
+
+		      <div><%= f.submit "Send me reset password instructions", :class => "btn btn-large btn-block" %></div>
+		    <% end %>
+
+		    <p class="center"><%= render "devise/shared/links" %></p>
+		</div><!-- end container-bot -->
+
+	</div><!-- end container -->
+
+</div>
