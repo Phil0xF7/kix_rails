@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ()->
+  # This array is only for reference.
   TYPES = [
             "story-main",
             "story-long",
@@ -115,18 +116,14 @@ $ ()->
     $('#flag').html daysLeft
     return true
 
-  $("#cb-story-main").change ->
-    category = $(this).data('cat')
-    subtask = $(this).attr('name')
-    if $(this).is(':checked')
-      state = 1
-    else
-      state = 0
+  $(".toggle-task").change ->
+    category = $(this).parent().data('cat')
+    subtask = $(this).parent().data('subtask')
+    state = parseInt($(this).val(), 10)
     setTaskComplete(subtask, state);
     # count the number of tasks in this category that are complete
     cat_tasks_complete = $("#" + category + " .sub-task .complete").size()
     setSubProgressBar(category, cat_tasks_complete);
-    #
     #Can also use this to check tasks $('.task-cb:checked').size()
     total_tasks_complete = $(".sub-task .complete").size()
     setMainProgressBar(total_tasks_complete)
@@ -136,7 +133,7 @@ $ ()->
     # setMainProgressBar(6);
     # setSubProgressBar('story', 3);
     # setSubProgressBar('video', 2);
-    # setDaysLeft(new Date("2013-04-27 11:23:00"));
+    setDaysLeft(new Date("2013-04-27 11:23:00"));
 
   init()
 
