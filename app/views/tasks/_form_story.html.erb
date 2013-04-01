@@ -1,12 +1,18 @@
-<form>
-	<textarea cols="40" rows="5" name="story_long" id="story_long"></textarea>
-	<input type="checkbox" name="complete_story_long" id="complete_story_long" value="complete">Task Completed!
-	<input type="submit" value="Save" id="submit_story_long">
+<div class="form-display">
+  <form>
+    <textarea cols="40" rows="5" name="story_main" id="story_main"></textarea>
+    <!-- <input type="checkbox" name="complete_story_long" id="complete_story_long" value="complete">Task Completed! -->
+    <br>
+    <input class="btn btn-large btn-primary" type="submit" value="Save" id="submit_story_main">
 
-	<div id="toggle-story-main" data-cat="story" data-subtask="story-main" class="toggle toggle-icon">
-		<label class="toggle-radio fui-checkmark-16" for="toggle2-story-main"></label>
-		<input type="radio" class="toggle-task" name="story-main" id="toggle1-story-main" value="1">
-		<label class="toggle-radio fui-cross-16" for="toggle1-story-main"></label>
-		<input type="radio" class="toggle-task" name="story-main" id="toggle2-story-main" value="0" checked="checked">
-	</div>
-</form>
+    <div class="toggle-group">
+      <span class="toggle-text">Mark Complete</span>
+      <div id="toggle-story-main" data-cat="story" data-subtask="story-main" class="toggle toggle-icon">
+        <label class="toggle-radio fui-checkmark-16" for="toggle2-story-main"></label>
+        <input type="radio" class="toggle-task" name="story-main" id="toggle1-story-main" value="1">
+        <label class="toggle-radio fui-cross-16" for="toggle1-story-main"></label>
+        <input type="radio" class="toggle-task" name="story-main" id="toggle2-story-main" value="0" checked="checked">
+      </div>
+    </div>
+  </form>
+</div>
