@@ -1,6 +1,10 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+# Create namespace or use current namespace object
+window.TaskApp = TaskApp || {};
+
 $ ()->
   # This array is only for reference.
   TYPES = [
@@ -37,23 +41,23 @@ $ ()->
 
   $('.cat-button').click (e)->
     target = e.currentTarget
-    subTask = $(this).parent().children('.sub-tasks')
+    subtask = $(this).parent().children('.sub-tasks')
     showDefaultPageContent()
     # Remove any select classes from subtask buttons.
     $('.sub-task').trigger('deselect')
 
-    if subTask.css('display') != 'block'
+    if subtask.css('display') != 'block'
       $('.sub-tasks').trigger('hide_open_lists')
       $(this).addClass('select')
       $(this).children('.dotted').children('li').addClass('select')
 
-      $(subTask).slideToggle 500, ()->
+      $(subtask).slideToggle 500, ()->
         if($(this).css('display') == 'none')
           $(target).removeClass('select')
           return true
       return true
     else
-      $(subTask).slideToggle 500, ()->
+      $(subtask).slideToggle 500, ()->
         $(target).removeClass('select')
         $(target).children('.dotted').children('li').removeClass('select')
         return true
@@ -77,19 +81,52 @@ $ ()->
     return true
 
   $('.sub-task').click ->
-    subTaskId = $(this).attr("id")
-    $('.sub-task').trigger('deselect')
+    category = $(this).parent().parent().attr("id")
+    subtask = $(this).attr("id")
 
+    setFormTemplate(category, subtask)
     hideDefaultPageContent()
 
+    $('.sub-task').trigger('deselect')
     $(this).addClass('select')
     subBadge = $(this).children('.sub-badge')
+
     if $(subBadge).hasClass('complete')
       $(subBadge).addClass('select')
+      $("#toggle1-"+subtask).attr("checked", "checked")
 
-    taskPageId = "#taskpage-" + subTaskId
-    $(taskPageId).show()
+    taskPageId = "#taskpage-" + subtask
+    $(".taskpage").show()
+    $(".overview").hide()
+    $("#overview-"+subtask).show()
+
+    setFormEvents()
     return true
+
+  # Form Setup
+  setFormTemplate = (category, subtask, state)->
+    source = $('#form-template').html()
+    template = Handlebars.compile(source)
+    data = { category: category, subtask: subtask, on: "true", off: "false"}
+    $('#form-content').html(template(data))
+
+
+  setFormEvents = ->
+      # toggleSetup is a call to a Flat UI setup function in
+      # vendor/assets/javascripts/custom_radio.js
+      TaskApp.toggleSetup()
+      $(".toggle-task").change (e)->
+        category = $(this).parent().data('cat')
+        subtask = $(this).parent().data('subtask')
+        state = parseInt($(this).val(), 10)
+        setTaskComplete(subtask, state)
+        # count the number of tasks in this category that are complete
+        cat_tasks_complete = $("#" + category + " .sub-task .complete").size()
+        setSubProgressBar(category, cat_tasks_complete)
+        #Can also use this to check tasks $('.task-cb:checked').size()
+        total_tasks_complete = $(".sub-task .complete").size()
+        setMainProgressBar(total_tasks_complete)
+        setToggleText(e.currentTarget, state)
 
   # Page content display
   showDefaultPageContent = ->
@@ -143,26 +180,12 @@ $ ()->
     return true
 
 
-  $(".toggle-task").change (e)->
-    category = $(this).parent().data('cat')
-    subtask = $(this).parent().data('subtask')
-    state = parseInt($(this).val(), 10)
-    setTaskComplete(subtask, state)
-    # count the number of tasks in this category that are complete
-    cat_tasks_complete = $("#" + category + " .sub-task .complete").size()
-    setSubProgressBar(category, cat_tasks_complete)
-    #Can also use this to check tasks $('.task-cb:checked').size()
-    total_tasks_complete = $(".sub-task .complete").size()
-    setMainProgressBar(total_tasks_complete)
-    setToggleText(e.currentTarget, state)
-
   init = ->
     $('.sub-tasks').hide()
     # setMainProgressBar(6)
     # setSubProgressBar('story', 3)
     # setSubProgressBar('video', 2)
     setDaysLeft(new Date("2013-04-27 11:23:00"))
-    $("#taskpage-story-main").hide()
+    $(".taskpage").hide()
 
   init()
-

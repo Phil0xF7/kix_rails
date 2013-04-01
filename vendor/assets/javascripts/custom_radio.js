@@ -1,3 +1,5 @@
+var TaskApp = TaskApp || {};
+
 var toggleHandler = function(toggle) {
     var toggle = toggle;
     var radio = $(toggle).find("input");
@@ -22,7 +24,10 @@ var toggleHandler = function(toggle) {
 };
 
 $(document).ready(function() {
-    $(".toggle").each(function(index, toggle) {
-        toggleHandler(toggle);
-    });
+    TaskApp.toggleSetup = function(){
+        $(".toggle").each(function(index, toggle) {
+            toggleHandler(toggle);
+        });
+    };
+    TaskApp.toggleSetup();
 });

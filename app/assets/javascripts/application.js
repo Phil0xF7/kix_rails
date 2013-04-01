@@ -22,5 +22,6 @@
 //= require jquery.tagsinput
 //= require bootstrap-tooltip
 //= require jquery.placeholder
+//= require handlebars
 //= require fui_application
 //= require_tree .
