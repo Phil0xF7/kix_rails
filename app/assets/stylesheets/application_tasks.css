@@ -11,6 +11,7 @@
  *= require bootstrap
  *= require flat-ui
  *= require global
- *= require tasks
+ *= require tasks/tasks
+ *= require tasks/forms
  *= require_self
  */

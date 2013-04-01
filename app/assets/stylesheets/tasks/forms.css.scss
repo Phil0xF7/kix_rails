@@ -1,0 +1,31 @@
+form{
+  background-color: #2c3f4e;
+  border-radius: 8px;
+  padding:8px;
+  color: #fff;
+}
+
+textarea{
+  width:570px;
+  resize: none;
+}
+
+.btn{
+  margin: 0;
+  // padding: 0;
+}
+
+.toggle-group{
+  display: inline;
+  margin-top: 8px;
+  float: right;
+}
+
+.toggle-group span{
+  color: #15bc9d;
+  margin-right:10px;
+}
+
+.toggle{
+  margin: 0;
+}
