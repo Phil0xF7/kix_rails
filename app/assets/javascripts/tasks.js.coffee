@@ -41,13 +41,13 @@ $ ()->
 
   $('.cat-button').click (e)->
     target = e.currentTarget
-    subtask = $(this).parent().children('.sub-tasks')
+    subtask = $(this).parent().children('.subtasks')
     showDefaultPageContent()
     # Remove any select classes from subtask buttons.
-    $('.sub-task').trigger('deselect')
+    $('.subtask').trigger('deselect')
 
     if subtask.css('display') != 'block'
-      $('.sub-tasks').trigger('hide_open_lists')
+      $('.subtasks').trigger('hide_open_lists')
       $(this).addClass('select')
       $(this).children('.dotted').children('li').addClass('select')
 
@@ -62,7 +62,7 @@ $ ()->
         $(target).children('.dotted').children('li').removeClass('select')
         return true
 
-  $('.sub-tasks').on 'hide_open_lists', (e)->
+  $('.subtasks').on 'hide_open_lists', (e)->
     catButton = $(this).parent().children('.cat-button')
     if $(this).css('display') == 'block'
       $(catButton).removeClass('select')
@@ -72,7 +72,7 @@ $ ()->
     return true
 
   # Subtask Code
-  $('.sub-task').on 'deselect', ->
+  $('.subtask').on 'deselect', ->
     subBadge = $(this).children('.sub-badge')
     $(this).removeClass('select')
     $(".taskpage").hide()
@@ -80,14 +80,13 @@ $ ()->
       $(subBadge).removeClass('select')
     return true
 
-  $('.sub-task').click ->
+  $('.subtask').click ->
     category = $(this).parent().parent().attr("id")
     subtask = $(this).attr("id")
 
-    setFormTemplate(category, subtask)
     hideDefaultPageContent()
 
-    $('.sub-task').trigger('deselect')
+    $('.subtask').trigger('deselect')
     $(this).addClass('select')
     subBadge = $(this).children('.sub-badge')
 
@@ -97,36 +96,48 @@ $ ()->
 
     taskPageId = "#taskpage-" + subtask
     $(".taskpage").show()
-    $(".overview").hide()
-    $("#overview-"+subtask).show()
-
-    setFormEvents()
+    $(".taskpage-subtask").hide()
+    $("#taskpage-"+subtask).show()
     return true
 
   # Form Setup
-  setFormTemplate = (category, subtask, state)->
-    source = $('#form-template').html()
+  createForms = ->
+    source = $("#form-template").html()
     template = Handlebars.compile(source)
-    data = { category: category, subtask: subtask, on: "true", off: "false"}
-    $('#form-content').html(template(data))
-
+    $(".subtask").each (index, element)->
+      category = $(this).parent().parent().attr("id")
+      subtask = $(this).attr("id")
+      data = { category: category, subtask: subtask}
+      $("#taskpage-"+subtask).children(".form-display").html(template(data))
+    # return true
 
   setFormEvents = ->
       # toggleSetup is a call to a Flat UI setup function in
       # vendor/assets/javascripts/custom_radio.js
       TaskApp.toggleSetup()
+      #
+      $(".toggle-task").click ->
+        console.log $(this).val()
       $(".toggle-task").change (e)->
         category = $(this).parent().data('cat')
         subtask = $(this).parent().data('subtask')
         state = parseInt($(this).val(), 10)
         setTaskComplete(subtask, state)
         # count the number of tasks in this category that are complete
-        cat_tasks_complete = $("#" + category + " .sub-task .complete").size()
+        cat_tasks_complete = $("#" + category + " .subtask .complete").size()
         setSubProgressBar(category, cat_tasks_complete)
         #Can also use this to check tasks $('.task-cb:checked').size()
-        total_tasks_complete = $(".sub-task .complete").size()
+        total_tasks_complete = $(".subtask .complete").size()
         setMainProgressBar(total_tasks_complete)
         setToggleText(e.currentTarget, state)
+
+  setToggleText = (target, toggleState)->
+    if toggleState == 0
+      toggleText = "Mark Complete"
+    else
+      toggleText = "Completed"
+    target = $(target).parent().parent().children(".toggle-text")
+    $(target).html(toggleText)
 
   # Page content display
   showDefaultPageContent = ->
@@ -137,16 +148,7 @@ $ ()->
     $("#main-content").removeClass("mountain-bg").addClass("default-bg")
     $("#taskpage-default").hide()
 
-  # Form display
-  setToggleText = (target, toggleState)->
-    if toggleState == 0
-      toggleText = "Mark Complete"
-    else
-      toggleText = "Completed"
-    target = $(target).parent().parent().children(".toggle-text")
-    $(target).html(toggleText)
-
-  # Task complete code
+  # Task progress / complete code
   setMainProgressBar = (completed_tasks)->
       if completed_tasks > 25
         completed_tasks = 25
@@ -174,18 +176,19 @@ $ ()->
   setDaysLeft = (launchDate)->
     nowDate = new Date()
     daysLeft = Math.ceil((launchDate - nowDate) / 1000 / 60 / 60 / 24)
-    console.log daysLeft
     daysLeft += " days left"
     $('#flag').html daysLeft
     return true
 
-
   init = ->
-    $('.sub-tasks').hide()
+    $('.subtasks').hide()
     # setMainProgressBar(6)
     # setSubProgressBar('story', 3)
     # setSubProgressBar('video', 2)
     setDaysLeft(new Date("2013-04-27 11:23:00"))
+    $(".taskpage-subtask").hide()
     $(".taskpage").hide()
+    createForms()
+    setFormEvents()
 
   init()

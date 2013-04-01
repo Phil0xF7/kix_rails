@@ -62,7 +62,7 @@
   font-weight: normal;
   padding: 0;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 // Sidebar content
@@ -156,12 +156,12 @@ ul.dotted li {
 
 /****** Sub Task List Styles ******/
 
-.sub-tasks{
+.subtasks{
   background-color: #15bc9d;
   margin-left: 2px !important;
   display: block;
 }
-.sub-task{
+.subtask{
   position: relative;
   color: #15bc9d;
   font-size: 1.3em;
@@ -174,11 +174,11 @@ ul.dotted li {
   margin-left: 7px;
 }
 
-.sub-task span{
+.subtask span{
 
 }
 
-.sub-task strong{
+.subtask strong{
   text-align: center;
   font-size: 1.3em;
   border-radius: 999px;
@@ -191,12 +191,12 @@ ul.dotted li {
   display: inline-block;
 }
 
-.sub-task.select{
+.subtask.select{
   color: #fff;
   background-color: #f39b3a;
 }
 
-.sub-task .sub-badge{
+.subtask .sub-badge{
   position: absolute;
   right:20px;
   top:50%;
@@ -205,15 +205,15 @@ ul.dotted li {
   height: 34px;
 }
 
-.sub-task .incomplete{
+.subtask .incomplete{
   background: url(image-path('badges/subtask/incomplete.png'));
 }
 
-.sub-task .complete{
+.subtask .complete{
   background: url(image-path('badges/subtask/complete.png'));
 }
 
-.sub-task .complete.select{
+.subtask .complete.select{
   background: url(image-path('badges/subtask/complete-select.png'));
 }
 
