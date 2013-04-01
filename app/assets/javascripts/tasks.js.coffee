@@ -38,7 +38,7 @@ $ ()->
   $('.cat-button').click (e)->
     target = e.currentTarget
     subTask = $(this).parent().children('.sub-tasks')
-
+    showDefaultPageContent()
     # Remove any select classes from subtask buttons.
     $('.sub-task').trigger('deselect')
 
@@ -69,21 +69,47 @@ $ ()->
 
   # Subtask Code
   $('.sub-task').on 'deselect', ->
-    $(this).removeClass('select')
     subBadge = $(this).children('.sub-badge')
+    $(this).removeClass('select')
+    $(".taskpage").hide()
     if $(subBadge).hasClass('select')
       $(subBadge).removeClass('select')
     return true
 
   $('.sub-task').click ->
+    subTaskId = $(this).attr("id")
     $('.sub-task').trigger('deselect')
+
+    hideDefaultPageContent()
+
     $(this).addClass('select')
     subBadge = $(this).children('.sub-badge')
     if $(subBadge).hasClass('complete')
       $(subBadge).addClass('select')
+
+    taskPageId = "#taskpage-" + subTaskId
+    $(taskPageId).show()
     return true
 
-  # Progress bar code
+  # Page content display
+  showDefaultPageContent = ->
+    $("#main-content").removeClass("default-bg").addClass("mountain-bg")
+    $("#taskpage-default").show()
+
+  hideDefaultPageContent = ->
+    $("#main-content").removeClass("mountain-bg").addClass("default-bg")
+    $("#taskpage-default").hide()
+
+  # Form display
+  setToggleText = (target, toggleState)->
+    if toggleState == 0
+      toggleText = "Mark Complete"
+    else
+      toggleText = "Completed"
+    target = $(target).parent().parent().children(".toggle-text")
+    $(target).html(toggleText)
+
+  # Task complete code
   setMainProgressBar = (completed_tasks)->
       if completed_tasks > 25
         completed_tasks = 25
@@ -116,24 +142,27 @@ $ ()->
     $('#flag').html daysLeft
     return true
 
-  $(".toggle-task").change ->
+
+  $(".toggle-task").change (e)->
     category = $(this).parent().data('cat')
     subtask = $(this).parent().data('subtask')
     state = parseInt($(this).val(), 10)
-    setTaskComplete(subtask, state);
+    setTaskComplete(subtask, state)
     # count the number of tasks in this category that are complete
     cat_tasks_complete = $("#" + category + " .sub-task .complete").size()
-    setSubProgressBar(category, cat_tasks_complete);
+    setSubProgressBar(category, cat_tasks_complete)
     #Can also use this to check tasks $('.task-cb:checked').size()
     total_tasks_complete = $(".sub-task .complete").size()
     setMainProgressBar(total_tasks_complete)
+    setToggleText(e.currentTarget, state)
 
   init = ->
-    $('.sub-tasks').hide();
-    # setMainProgressBar(6);
-    # setSubProgressBar('story', 3);
-    # setSubProgressBar('video', 2);
-    setDaysLeft(new Date("2013-04-27 11:23:00"));
+    $('.sub-tasks').hide()
+    # setMainProgressBar(6)
+    # setSubProgressBar('story', 3)
+    # setSubProgressBar('video', 2)
+    setDaysLeft(new Date("2013-04-27 11:23:00"))
+    $("#taskpage-story-main").hide()
 
   init()
 
