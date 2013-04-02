@@ -204,6 +204,8 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+    params[:task][:completed].to_i == 1 ? completed = DateTime.now().to_s : completed = nil
+    params[:task][:completed] = completed
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
@@ -231,8 +233,6 @@ class TasksController < ApplicationController
   #GET /tasks/test
   def test_update
     @tasks = Task.where(:user_id => current_user)
-
-
 
     respond_to do |format|
       format.html #test_update.html.erb
