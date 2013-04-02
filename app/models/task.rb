@@ -6,12 +6,13 @@ class Task < ActiveRecord::Base
   @type_num_start = 0
   @type_num_end = 24
 
-  validates_presence_of :type_task, :user_id
-  validates_numericality_of :user_id, :only_integer => true
+  validates_presence_of :type_task, :user_id, :on => :create
+  validates_numericality_of :user_id, :only_integer => true, :on => :create
   validates_numericality_of :type_task,
                             :only_integer => true,
                             :greater_than_or_equal_to => @type_num_start,
-                            :less_than_or_equal_to => @type_num_end
+                            :less_than_or_equal_to => @type_num_end,
+                            :on => :create
 
   # Returns a count of all non-completed fields for the current user
   def self.total_completed(cur_user_id)
