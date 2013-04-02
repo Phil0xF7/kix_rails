@@ -4,11 +4,12 @@ form{
   border-radius: 8px;
   padding:8px;
   color: #fff;
+  height: 325px;
 }
 
 textarea{
   width:570px;
-  height:350px;
+  height:250px;
   resize: none;
 }
 
@@ -16,7 +17,6 @@ textarea{
   position: relative;
   margin-top: 8px;
   float: right;
-  height: 100%;
 }
 
 .toggle-group span{
