@@ -1,0 +1,17 @@
+<script id="form-template" type="text/x-handlebars-template">
+  <form class="clearfix">
+    <textarea cols="40" rows="5" name="text" id="{{ subtask }}">{{text}}</textarea>
+    <br>
+    <input type="hidden" name="id" value="{{id}}">
+
+    <div class="toggle-group">
+      <span class="toggle-text">Mark Complete</span>
+      <div id="toggle-{{ subtask }}" data-cat="{{ category }}" data-subtask="{{ subtask }}" class="toggle toggle-icon">
+        <label class="toggle-radio fui-checkmark-16" for="toggle2-{{ subtask }}"></label>
+        <input type="radio" class="toggle-task" name="completed" id="toggle1-{{ subtask }}" value="1" {{#if completed }}checked="checked"{{/if}}>
+        <label class="toggle-radio fui-cross-16" for="toggle1-{{ subtask }}"></label>
+        <input type="radio" class="toggle-task" name="completed" id="toggle2-{{ subtask }}" value="0" {{#unless completed }}checked="checked"{{/unless}}>
+      </div>
+    </div>
+  </form>
+</script>

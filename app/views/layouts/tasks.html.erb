@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html class="dk_fouc has-js">
+
+    <head>
+        <title>Prekix | Get ready for Kickstarter success!</title>
+        <!-- <link href="css/kix-styles.css" rel="stylesheet" type="text/css"> -->
+        <%= stylesheet_link_tag    "application_tasks", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+    </head>
+
+    <body id="tasks-home" class="green" data-twttr-rendered="true" cz-shortcut-listen="true">
+
+        <%= yield %>
+
+    </body>
+
+</html>
