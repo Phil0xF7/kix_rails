@@ -129,6 +129,10 @@ application.js: application-d6efc70e793dac781396ffd876000f51.js
 application/index.js: application-d6efc70e793dac781396ffd876000f51.js
 application.css: application-9bf30862239f6bca0f1462f0bfd1cc50.css
 application/index.css: application-9bf30862239f6bca0f1462f0bfd1cc50.css
+application_login.css: application_login-b6e52f76aee387f7e5878895df48e57f.css
+application_login/index.css: application_login-b6e52f76aee387f7e5878895df48e57f.css
+application_tasks.css: application_tasks-8facd46a3df25f7dfbb9b0037a82be76.css
+application_tasks/index.css: application_tasks-8facd46a3df25f7dfbb9b0037a82be76.css
 Flat-UI-Icons-16.dev.svg: Flat-UI-Icons-16.dev-baf0dd9e41c8e88de649dfad25c6d0f6.svg
 Flat-UI-Icons-16/index.dev.svg: Flat-UI-Icons-16.dev-baf0dd9e41c8e88de649dfad25c6d0f6.svg
 Flat-UI-Icons-16.eot: Flat-UI-Icons-16-3dc5590f8a339802d15dc3edfa02d09c.eot
